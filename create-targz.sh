@@ -1,18 +1,24 @@
 #!/bin/bash
 
+set -e
+
 BUILDIR=$(pwd)
+TMPDIR=$(mktemp -d)
 
-cd /tmp
+ARCH="amd64"
+DIST="stretch"
 
-sudo debootstrap --arch=amd64 --force-check-gpg stretch stretch
+cd $TMPDIR
 
-sudo chroot stretch apt-get clean
+sudo debootstrap --arch=$ARCH --force-check-gpg --variant=minbase --include=sudo $DIST $DIST
 
-cd /tmp/stretch
+sudo chroot $DIST apt-get clean
 
-tar czvf /tmp/install.tar.gz .
+cd $DIST
 
-cp /tmp/install.tar.gz $BUILDIR
+tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz .
+
+cp $TMPDIR/install.tar.gz $BUILDIR
 
 cd $BUILDIR
 
