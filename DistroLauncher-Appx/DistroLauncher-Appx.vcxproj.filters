@@ -155,8 +155,11 @@
   <ItemGroup>
     <None Include="DistroLauncher-Appx_TemporaryKey.pfx" />
     <None Include="..\install.tar.gz" />
+    <None Include="Package.StoreAssociation.xml" />
+    <None Include="DistroLauncher-Appx_StoreKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="$(targetname)" />
     <CustomBuild Include="$(targetname)" />
     <CustomBuild Include="$(targetname)" />
   </ItemGroup>
