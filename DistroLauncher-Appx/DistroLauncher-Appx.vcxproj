@@ -72,6 +72,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\BadgeLogo.scale-100.png" />
+    <Image Include="Assets\BadgeLogo.scale-125.png" />
+    <Image Include="Assets\BadgeLogo.scale-150.png" />
+    <Image Include="Assets\BadgeLogo.scale-200.png" />
+    <Image Include="Assets\BadgeLogo.scale-400.png" />
     <Image Include="Assets\LargeTile.scale-100.png" />
     <Image Include="Assets\LargeTile.scale-125.png" />
     <Image Include="Assets\LargeTile.scale-150.png" />
@@ -107,7 +112,6 @@
     <Image Include="Assets\Square44x44Logo.targetsize-256.png" />
     <Image Include="Assets\Square44x44Logo.targetsize-32.png" />
     <Image Include="Assets\Square44x44Logo.targetsize-48.png" />
-    <Image Include="Assets\StoreLogo.png" />
     <Image Include="Assets\StoreLogo.scale-100.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
