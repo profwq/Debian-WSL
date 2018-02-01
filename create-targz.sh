@@ -10,7 +10,8 @@ DIST="stretch"
 
 cd $TMPDIR
 
-sudo debootstrap --arch=$ARCH --force-check-gpg --variant=minbase --include=sudo $DIST $DIST
+#sudo debootstrap --arch=$ARCH --force-check-gpg --variant=minbase --include=sudo $DIST $DIST
+sudo cdebootstrap -a $ARCH --include=sudo $DIST $DIST http://ftp.de.debian.org/debian
 
 sudo chroot $DIST apt-get clean
 
