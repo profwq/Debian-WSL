@@ -10,14 +10,17 @@ DIST="stretch"
 
 cd $TMPDIR
 
-#sudo debootstrap --arch=$ARCH --force-check-gpg --variant=minbase --include=sudo $DIST $DIST
-sudo cdebootstrap -a $ARCH --include=sudo $DIST $DIST http://ftp.de.debian.org/debian
+sudo cdebootstrap -a $ARCH --include=sudo,locales $DIST $DIST http://ftp.de.debian.org/debian
 
 sudo chroot $DIST apt-get clean
 
+sudo chroot $DIST /bin/bash -c "update-locale LANGUAGE=en_US.UTF-8 LC_ALL=C"
+
+sudo chroot $DIST /bin/bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen"
+
 cd $DIST
 
-tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz .
+sudo tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz .
 
 cp $TMPDIR/install.tar.gz $BUILDIR
 
