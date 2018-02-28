@@ -24,7 +24,7 @@ sudo chroot $DIST /bin/bash -c "echo 'deb http://deb.debian.org/debian stretch-u
 
 sudo chroot $DIST /bin/bash -c "echo 'deb http://security.debian.org/debian-security/ stretch/updates main' >> /etc/apt/sources.list"
 
-sudo cp $BUILDIR/linux_files/profile $TMPDIR/etc/profile
+sudo cp $BUILDIR/linux_files/profile $TMPDIR/$DIST/etc/profile
 
 cd $DIST
 
