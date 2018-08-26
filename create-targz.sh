@@ -21,7 +21,7 @@ create_x64_rootfs () {
     sudo tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz *
 
     mkdir -p $BUILDIR/x64
-    cp $TMPDIR/install.tar.gz $BUILDIR/x64
+    mv $TMPDIR/install.tar.gz $BUILDIR/x64
     cd $BUILDIR
 }
 
@@ -40,7 +40,7 @@ create_arm64_rootfs () {
     sudo tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz *
 
     mkdir -p $BUILDIR/ARM64
-    cp $TMPDIR/install.tar.gz $BUILDIR/ARM64
+    mv $TMPDIR/install.tar.gz $BUILDIR/ARM64
     cd $BUILDIR
 }
 
