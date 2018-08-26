@@ -29,7 +29,7 @@ create_x64_rootfs () {
 create_arm64_rootfs () {
     cd $TMPDIR
 
-    sudo cdebootstrap -a "arm64" --include=sudo,locales $DIST $DIST http://deb.debian.org/debian
+    sudo cdebootstrap -a "arm64" --foreign --include=sudo,locales $DIST $DIST http://deb.debian.org/debian
     sudo chroot $DIST apt-get clean
     sudo chroot $DIST /bin/bash -c "update-locale LANGUAGE=en_US.UTF-8 LC_ALL=C"
     sudo chroot $DIST /bin/bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen"
