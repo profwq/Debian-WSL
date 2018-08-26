@@ -5,28 +5,45 @@ set -e
 BUILDIR=$(pwd)
 TMPDIR=$(mktemp -d)
 
-ARCH="amd64"
 DIST="stretch"
 
-cd $TMPDIR
+create_x64_rootfs () {
+    cd $TMPDIR
 
-sudo cdebootstrap -a $ARCH --include=sudo,locales $DIST $DIST http://deb.debian.org/debian
+    sudo cdebootstrap -a "amd64" --include=sudo,locales $DIST $DIST http://deb.debian.org/debian
+    sudo chroot $DIST apt-get clean
+    sudo chroot $DIST /bin/bash -c "update-locale LANGUAGE=en_US.UTF-8 LC_ALL=C"
+    sudo chroot $DIST /bin/bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen"
+    sudo cp $BUILDIR/linux_files/profile $TMPDIR/$DIST/etc/profile
+    sudo cp $BUILDIR/linux_files/sources.list $TMPDIR/$DIST/etc/apt/sources.list
 
-sudo chroot $DIST apt-get clean
+    cd $DIST
+    sudo tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz *
 
-sudo chroot $DIST /bin/bash -c "update-locale LANGUAGE=en_US.UTF-8 LC_ALL=C"
+    mkdir -p $BUILDIR/x64
+    cp $TMPDIR/install.tar.gz $BUILDIR/x64
+    cd $BUILDIR
+}
 
-sudo chroot $DIST /bin/bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen"
 
-sudo cp $BUILDIR/linux_files/profile $TMPDIR/$DIST/etc/profile
+create_arm64_rootfs () {
+    cd $TMPDIR
 
-sudo cp $BUILDIR/linux_files/sources.list $TMPDIR/$DIST/etc/apt/sources.list
+    sudo cdebootstrap -a "arm64" --include=sudo,locales $DIST $DIST http://deb.debian.org/debian
+    sudo chroot $DIST apt-get clean
+    sudo chroot $DIST /bin/bash -c "update-locale LANGUAGE=en_US.UTF-8 LC_ALL=C"
+    sudo chroot $DIST /bin/bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen"
+    sudo cp $BUILDIR/linux_files/profile $TMPDIR/$DIST/etc/profile
+    sudo cp $BUILDIR/linux_files/sources.list $TMPDIR/$DIST/etc/apt/sources.list
 
-cd $DIST
+    cd $DIST
+    sudo tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz *
 
-sudo tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz *
+    mkdir -p $BUILDIR/ARM64
+    cp $TMPDIR/install.tar.gz $BUILDIR/ARM64
+    cd $BUILDIR
+}
 
-cp $TMPDIR/install.tar.gz $BUILDIR
-
-cd $BUILDIR
+create_x64_rootfs
+create_arm64_rootfs
 
