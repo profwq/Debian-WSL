@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap mp uap2 uap3 rescap desktop">
-  <Identity Name="TheDebianProject.DebianGNULinux" Version="1.1.6.0" Publisher="CN=51C4C664-ED6E-40E8-A008-10EFD2F72288" ProcessorArchitecture="x64" />
+  <Identity Name="TheDebianProject.DebianGNULinux" Version="1.1.7.0" Publisher="CN=51C4C664-ED6E-40E8-A008-10EFD2F72288" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="81d6edb4-11a3-41b1-b79b-652fe8686f84" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Debian GNU/Linux</DisplayName>
+    <DisplayName>Debian</DisplayName>
     <PublisherDisplayName>The Debian Project</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -18,7 +18,7 @@
   </Resources>
   <Applications>
     <Application Id="debian" Executable="debian.exe" EntryPoint="Windows.FullTrustApplication">
-      <uap:VisualElements DisplayName="Debian GNU/Linux" Description="Debian GNU/Linux Distro Launcher" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Debian" Description="Debian Distro Launcher" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
