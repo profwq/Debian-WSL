@@ -16,7 +16,7 @@ namespace DistributionInfo
     const std::wstring Name = L"Debian";
 
     // The title bar for the console window while the distribution is installing.
-    const std::wstring WindowTitle = L"Debian GNU/Linux";
+    const std::wstring WindowTitle = L"Debian";
 
     // Create and configure a user account.
     bool CreateUser(std::wstring_view userName);

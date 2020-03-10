@@ -36,7 +36,7 @@ HRESULT MyLinuxDistroLauncher::Initialize()
     // of the full path to the app 
     //  ex C:\Program Files\WindowsApps\my.linuxdistro_1.0.0.0_x64__8b0vtwsf57ycy\DistroInstaller.exe
     // (bash will usually overwrite this when it starts)
-    SetConsoleTitleW(L"Debian GNU/Linux");
+    SetConsoleTitleW(L"Debian");
     return S_OK;
 }
 
