@@ -15,6 +15,7 @@ create_x64_rootfs () {
     sudo chroot $DIST apt-get clean
     sudo chroot $DIST /bin/bash -c "update-locale LANGUAGE=en_US.UTF-8 LC_ALL=C"
     sudo chroot $DIST /bin/bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen"
+    sudo cp $BUILDIR/linux_files/profile $TMPDIR/$DIST/etc/profile
     sudo cp $BUILDIR/linux_files/sources.list $TMPDIR/$DIST/etc/apt/sources.list
 
     cd $DIST
@@ -33,6 +34,7 @@ create_arm64_rootfs () {
     sudo chroot $DIST apt-get clean
     sudo chroot $DIST /bin/bash -c "update-locale LANGUAGE=en_US.UTF-8 LC_ALL=C"
     sudo chroot $DIST /bin/bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen"
+    sudo cp $BUILDIR/linux_files/profile $TMPDIR_ARM64/$DIST/etc/profile
     sudo cp $BUILDIR/linux_files/sources.list $TMPDIR_ARM64/$DIST/etc/apt/sources.list
 
     cd $DIST
