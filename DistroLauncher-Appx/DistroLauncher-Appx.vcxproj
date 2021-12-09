@@ -84,7 +84,7 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateKeyFile>DistroLauncher-Appx_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>C5D30C1D5351659B4092A0ED0F91C76AF9841E74</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
