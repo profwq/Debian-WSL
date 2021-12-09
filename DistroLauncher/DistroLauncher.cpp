@@ -158,6 +158,10 @@ int wmain(int argc, wchar_t const *argv[])
     if (FAILED(hr)) {
         if (hr == HRESULT_FROM_WIN32(ERROR_LINUX_SUBSYSTEM_NOT_PRESENT)) {
             Helpers::PrintMessage(MSG_MISSING_OPTIONAL_COMPONENT);
+        }
+
+        else if (hr == HCS_E_HYPERV_NOT_INSTALLED) {
+            Helpers::PrintMessage(MSG_ENABLE_VIRTUALIZATION);
 
         } else {
             Helpers::PrintErrorMessage(hr);
