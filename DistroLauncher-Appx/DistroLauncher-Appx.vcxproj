@@ -84,7 +84,7 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>C5D30C1D5351659B4092A0ED0F91C76AF9841E74</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>D86A2C44FA43A2C2268BADEF6E19EAFBF7A22B9F</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
