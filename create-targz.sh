@@ -9,7 +9,7 @@ BUILDIR=$(pwd)
 TMPDIR=$(mktemp -d)
 TMPDIR_ARM64=$(mktemp -d)
 
-DIST="bullseye"
+DIST="bookworm"
 
 create_x64_rootfs() {
 	cd $TMPDIR
