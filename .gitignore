@@ -295,3 +295,6 @@ DistroLauncher/messages.h
 *.lib
 *.dll
 *.exe
+
+rootfs/
+debcache/
