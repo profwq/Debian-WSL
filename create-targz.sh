@@ -34,7 +34,7 @@ create_x64_rootfs() {
 	sudo rm -f $TMPDIR/$DIST/etc/resolv.conf
 
 	cd $DIST
-	sudo tar --ignore-failed-read -czvf $TMPDIR/install.tar.gz *
+	sudo tar --numeric-owner --absolute-names --ignore-failed-read -czvf $TMPDIR/install.tar.gz *
 
 	mkdir -p $BUILDIR/x64
 	mv -f $TMPDIR/install.tar.gz $BUILDIR/x64
@@ -61,7 +61,7 @@ create_arm64_rootfs() {
 	sudo rm -f $TMPDIR_ARM64/$DIST/etc/resolv.conf
 
 	cd $DIST
-	sudo tar --ignore-failed-read -czvf $TMPDIR_ARM64/install_arm64.tar.gz *
+	sudo tar --numeric-owner --absolute-names --ignore-failed-read -czvf $TMPDIR_ARM64/install_arm64.tar.gz *
 
 	mkdir -p $BUILDIR/ARM64
 	mv -f $TMPDIR_ARM64/install_arm64.tar.gz $BUILDIR/ARM64/install.tar.gz
