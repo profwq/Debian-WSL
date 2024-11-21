@@ -30,6 +30,7 @@ create_x64_rootfs() {
 	sudo cp $BUILDIR/linux_files/wsl.conf $TMPDIR/$DIST/etc/wsl.conf
 	sudo mkdir -p $TMPDIR/$DIST/usr/lib/wsl/
 	sudo cp $BUILDIR/linux_files/oobe.sh $TMPDIR/$DIST/usr/lib/wsl/oobe.sh
+	sudo chmod 755 $TMPDIR/$DIST/usr/lib/wsl/oobe.sh
 	sudo cp $BUILDIR/pictures/debian_logo.ico $TMPDIR/$DIST/usr/lib/wsl/debian_logo.ico
 	sudo rm -f $TMPDIR/$DIST/etc/resolv.conf
 
@@ -57,6 +58,7 @@ create_arm64_rootfs() {
 	sudo cp $BUILDIR/linux_files/wsl.conf $TMPDIR_ARM64/$DIST/etc/wsl.conf
 	sudo mkdir -p $TMPDIR_ARM64/$DIST/usr/lib/wsl/
 	sudo cp $BUILDIR/linux_files/oobe.sh $TMPDIR_ARM64/$DIST/usr/lib/wsl/oobe.sh
+	sudo chmod 755 $TMPDIR_ARM64/$DIST/usr/lib/wsl/oobe.sh
 	sudo cp $BUILDIR/pictures/debian_logo.ico $TMPDIR_ARM64/$DIST/usr/lib/wsl/debian_logo.ico
 	sudo rm -f $TMPDIR_ARM64/$DIST/etc/resolv.conf
 
