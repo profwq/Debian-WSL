@@ -20,7 +20,7 @@ DIST="bookworm"
 create_x64_rootfs() {
 	cd $TMPDIR
 
-	sudo debootstrap --arch "amd64" --cache-dir=$BUILDIR/debcache --exclude=debfoster --include=sudo,locales $DIST $DIST http://deb.debian.org/debian
+	sudo debootstrap --arch "amd64" --cache-dir=$BUILDIR/debcache --exclude=debfoster --include=sudo,locales,libpam-systemd,dbus $DIST $DIST http://deb.debian.org/debian
 	sudo chroot $DIST apt-get clean
 	sudo chroot $DIST /bin/bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen"
 	sudo chroot $DIST /bin/bash -c "update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8"
@@ -45,7 +45,7 @@ create_x64_rootfs() {
 create_arm64_rootfs() {
 	cd $TMPDIR_ARM64
 
-	sudo debootstrap --arch "arm64" --cache-dir=$BUILDIR/debcache --foreign --exclude=debfoster --include=sudo,locales $DIST $DIST http://deb.debian.org/debian
+	sudo debootstrap --arch "arm64" --cache-dir=$BUILDIR/debcache --foreign --exclude=debfoster --include=sudo,locales,libpam-systemd,dbus $DIST $DIST http://deb.debian.org/debian
 	sudo cp $(which qemu-aarch64-static) $DIST/usr/bin
 	sudo chroot $DIST /debootstrap/debootstrap --second-stage
 	sudo chroot $DIST apt-get clean
