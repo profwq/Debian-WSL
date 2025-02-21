@@ -38,7 +38,11 @@ create_x64_rootfs() {
 	sudo tar --numeric-owner --absolute-names --ignore-failed-read -czvf $TMPDIR/install.tar.gz *
 
 	mkdir -p $BUILDIR/x64
-	mv -f $TMPDIR/install.tar.gz $BUILDIR/x64
+	mv -f $TMPDIR/install.tar.gz $BUILDIR/x64/install.tar.gz
+
+	sha=($(shasum -a 256 $BUILDIR/x64/install.tar.gz))
+	echo $sha > $BUILDIR/x64/install.tar.gz.sha256sum
+
 	cd $BUILDIR
 }
 
@@ -67,6 +71,10 @@ create_arm64_rootfs() {
 
 	mkdir -p $BUILDIR/ARM64
 	mv -f $TMPDIR_ARM64/install_arm64.tar.gz $BUILDIR/ARM64/install.tar.gz
+
+	sha=($(shasum -a 256 $BUILDIR/ARM64/install.tar.gz))
+	echo $sha > $BUILDIR/ARM64/install.tar.gz.sha256sum
+
 	cd $BUILDIR
 }
 
