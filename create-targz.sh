@@ -15,7 +15,7 @@ mkdir -p $BUILDIR/debcache
 TMPDIR=$(mktemp -d -p $BUILDIR/rootfs)
 TMPDIR_ARM64=$(mktemp -d -p $BUILDIR/rootfs)
 
-DIST="bookworm"
+DIST="trixie"
 
 create_x64_rootfs() {
 	cd $TMPDIR
