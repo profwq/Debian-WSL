@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 0 1,16 * ?'
 
+permissions:
+  contents: write
+
 jobs:
   build_job:
     name: build
