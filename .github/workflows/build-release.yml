@@ -13,8 +13,8 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
         
       - name: run script
         id: run-script
